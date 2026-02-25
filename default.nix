@@ -2,7 +2,7 @@
 
 buildGoModule rec {
   pname = "opforjellyfin";
-  version = "1.0.1_nixosalpha1";
+  version = "1.0.1";
 
   src = fetchFromGitHub {
     owner = "tissla";
@@ -18,7 +18,7 @@ buildGoModule rec {
   meta = with lib; {
     description = "CLI to automate download and organisation of One Pace episodes for Jellyfin";
     homepage = "https://github.com/tissla/opforjellyfin";
-    license = licenses.mit;
+    license = licenses.gpl3Plus;
     platforms = platforms.linux;
     maintainers = [ nahieluniversal ];
   };
