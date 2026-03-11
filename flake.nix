@@ -7,23 +7,13 @@
 
   outputs = { self, nixpkgs }: {
     packages = {
-      x86_64-linux =
-        let
+      x86_64-linux = {
+        default = let
           pkgs = import nixpkgs {
             system = "x86_64-linux";
           };
-        in 
-        pkgs.stdenv.mkDerivation {
-          name = "opforjellyfin_nix";
-          src = ./.;
-
-          buildInputs = [ ];
-
-          installPhase = ''
-            mkdir -p $out/bin
-            cp -r * $out/bin
-          '';
-        };
+        in pkgs.callPackage ./default.nix { };
+      };
     };
   };
 }
